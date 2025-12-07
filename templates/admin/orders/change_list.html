@@ -1,0 +1,43 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+
+{# Django'нун стандарттык тизмесинен кийин өзүбүздүн блогубузду кошобуз #}
+{% block result_list %}
+    {{ block.super }}
+
+    {# totals өзгөрмөсү барбы же жокпу текшеребиз #}
+    {% if totals %}
+        <div style="padding: 15px; margin-top: 10px; background-color: #f7f8fc; border: 1px solid #ddd; border-radius: 4px; text-align: right;">
+            
+            <h3 style="margin-top: 0; margin-bottom: 15px; text-align: left; color: #333;">Жыйынтыктар (учурдагы чыпка боюнча):</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; text-align: center;">
+
+                {# Жеткирилгендер #}
+                <div style="padding: 10px; background-color: #d4edda; border-radius: 4px;">
+                    <strong style="color: #155724; display: block; margin-bottom: 5px;">{% trans "Жеткирилди" %}</strong>
+                    <span style="font-size: 1.2em; color: #155724;">{{ totals.delivered|floatformat:2 }} KGS</span>
+                </div>
+
+                {# Баш тартылгандар #}
+                <div style="padding: 10px; background-color: #f8d7da; border-radius: 4px;">
+                    <strong style="color: #721c24; display: block; margin-bottom: 5px;">{% trans "Баш тартылды" %}</strong>
+                    <span style="font-size: 1.2em; color: #721c24;">{{ totals.cancelled|floatformat:2 }} KGS</span>
+                </div>
+
+                {# Күтүүдөгүлөр жана Аткарылуудагылар #}
+                <div style="padding: 10px; background-color: #fff3cd; border-radius: 4px;">
+                    <strong style="color: #856404; display: block; margin-bottom: 5px;">{% trans "Күтүүдө/Аткарылууда" %}</strong>
+                    <span style="font-size: 1.2em; color: #856404;">{{ totals.pending|add:totals.processing|floatformat:2 }} KGS</span>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+
+            {# Баарынын жалпы суммасы #}
+            <div style="font-size: 1.6em; font-weight: bold; color: #004085;">
+                <span>{% trans "Баарынын жалпы суммасы:" %} {{ totals.grand_total|floatformat:2 }} KGS</span>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
