@@ -1,0 +1,604 @@
+/* frontend/src/App.css */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+}
+
+.main-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  align-items: start; 
+  
+}
+
+/* --- MainContent'ке тиешелүү стилдер --- */
+
+.menu-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.menu-section header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.menu-section h1 {
+  color: #333;
+}
+
+/* Категория карточкаларынын стилдери */
+.category-buttons {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 15px;
+}
+
+.category-card {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  font-weight: 500;
+  color: #555;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.category-card.active {
+  background-color: #fff0ed;
+  border-color: #ff6347;
+  color: #ff6347;
+  font-weight: bold;
+}
+
+.category-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  color: #ff6347; /* "Популярдуу" иконкасы үчүн түс */
+}
+
+
+/* Товарлардын карточкаларынын стилдери */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 20px;
+}
+
+.product-card {
+  position: relative;
+  background-color: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-card h2 {
+  font-size: 1.1rem;
+  margin: 10px 0 5px 0;
+  color: #333;
+}
+.product-description {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  margin: 0 0 10px 0;
+  height: 2.5em;
+  line-height: 1.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.product-card .price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #e67e22;
+}
+
+.add-to-cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+.add-to-cart-btn:hover {
+  background-color: #e55337;
+}
+
+.product-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+  z-index: 10;
+}
+.status-expired {
+  background-color: #dc3545;
+}
+.status-soon {
+  background-color: #ffc107;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- INVOICE БӨЛҮГҮНҮН СТИЛДЕРИ --- */
+.invoice-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 20px;
+}
+.invoice-section h2, .invoice-section h3 {
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.cart-items-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.empty-cart {
+  color: #999;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* App.css'тен .cart-item'ге тиешелүү стилдерди алмаштырыңыз */
+
+.cart-item {
+  display: flex; /* Элементтерди жанаша коюу */
+  align-items: center; /* Тигинен ортого тегиздөө */
+  gap: 15px; /* Аралык кошуу */
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Жаңы: Сүрөттүн стили */
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0; /* Сүрөт кичирейип кетпеши үчүн */
+}
+
+/* Жаңы: Текст жана баскычтар үчүн контейнер */
+.item-details {
+  flex-grow: 1; /* Калган бош орунду ээлөө */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Аталышы менен баскычтардын ортосундагы аралык */
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.item-price-small {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ... калган стилдер (.control-btn, .item-quantity ж.б.) өзгөрүүсүз калат ... */
+
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-name {
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+  
+}
+
+.item-price-small {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-btn {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555;
+  transition: background-color 0.2s;
+}
+.control-btn:hover {
+  background-color: #e0e0e0;
+}
+.item-quantity {
+  font-weight: bold;
+  font-size: 1rem;
+  min-width: 20px;
+  text-align: center;
+}
+.remove-btn {
+  margin-left: auto;
+  background-color: #fde8e6;
+  color: #dc3545;
+}
+.remove-btn:hover {
+  background-color: #f8d7da;
+}
+
+.payment-summary {
+  margin-top: 20px;
+}
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.summary-line.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.place-order-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+.place-order-btn:hover {
+  background-color: #218838;
+}
+
+/* react-confirm-alert үчүн ыңгайлаштырылган стилдер */
+.custom-ui {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.custom-ui h2 { margin-top: 0; }
+.custom-ui p { color: #555; margin-bottom: 20px; }
+.custom-ui input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.custom-ui-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.custom-ui-buttons button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.custom-ui-buttons button:first-child { background-color: #f0f0f0; color: #333; }
+.custom-ui-buttons button:last-child { background-color: #28a745; color: white; }
+.success-alert { text-align: center; }
+.success-alert h2 { color: #28a745; }
+.success-alert button { width: 100%; }
+/* App.css'тин аягына кошуңуз */
+
+.like-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #a0a0a0;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.like-section:hover {
+  background-color: #fff8e1;
+  color: #ffc107;
+}
+
+.like-section .like-icon {
+  font-size: 1rem;
+}
+
+.like-section span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* card-footer'ди бир аз оңдоо */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  gap: 10px; /* Элементтердин ортосуна аралык кошуу */
+}
+/* App.css'тин аягына кошуңуз */
+
+.auth-wrapper {
+  background-color: #f8f9fa; /* Негизги фондун түсү */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* App.css'тин аягына кошуңуз */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { background: white; padding: 20px; border-radius: 12px; width: 90%; max-width: 500px; }
+.close-modal-btn { background: none; border: none; font-size: 1rem; cursor: pointer; color: #888; margin-top: 10px; }
+/* App.css'тин аягында ушул стилдер болушу керек */
+
+/* react-confirm-alert үчүн ыңгайлаштырылган стилдер */
+.custom-ui {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.custom-ui h2 { margin-top: 0; }
+.custom-ui p { color: #555; margin-bottom: 20px; }
+.custom-ui input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.custom-ui-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.custom-ui-buttons button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #28a745; /* Жашыл түс */
+  color: white;             /* Ак текст */
+  margin-top: 15px;
+  transition: background-color 0.2s; /* Кошумча эффект */
+}
+
+/* Кошумча: hover эффектин кошуу */
+.success-alert button:hover {
+background-color: #218838;
+
+}
+.custom-ui-buttons button:first-child { background-color: #f0f0f0; color: #333; }
+.custom-ui-buttons button:last-child { background-color: #28a745; color: white; }
+
+.success-alert { text-align: center; }
+.success-alert h2 { color: #28a745; }
+.success-alert button { width: 100%; }
+/* App.css ичиндеги .place-order-btn стилин табыңыз жана алмаштырыңыз */
+
+/* Эки баскычка тең бирдей стиль берүү */
+.place-order-btn,
+.success-alert button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+  width: 100%; /* Эки баскыч тең толук туурасын ээлейт */
+  box-sizing: border-box; /* padding'ди туура эсептөө үчүн */
+}
+
+/* Эки баскычка тең бирдей hover эффектин берүү */
+.place-order-btn:hover,
+.success-alert button:hover {
+  background-color: #218838;
+}
+@media (max-width: 992px) {
+  .scroll-btn {
+    /* Баскычтарды контейнердин ичине киргизүү */
+    left: 10px;
+  }
+  .scroll-btn.next {
+    right: 10px;
+    left: auto;
+  }
+}
+
+/* Кичинекей планшеттер жана телефондор үчүн (768px чейин) */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 60px 0;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  .reviews-row {
+    /* Контейнердин четине жабышып калбашы үчүн */
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+  .review-card {
+    /* Бир картаны көрсөтүп, кийинкисинин бир бөлүгүн чыгарып туруу үчүн */
+    flex: 0 0 85%;
+  }
+  .scroll-btn {
+    display: none; /* Манжа менен жылдыруу үчүн баскычтарды жашыруу */
+  }
+}
+
+/* Телефондор үчүн (576px чейин) */
+@media (max-width: 576px) {
+  .reviews-section {
+    padding: 50px 0;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+  }
+  .review-card {
+    flex-basis: 90%; /* Картаны бир аз чоңойтуу */
+    padding: 25px;
+  }
+  .review-card::before {
+    font-size: 70px;
+    top: 10px;
+    left: 20px;
+  }
+  .author-photo {
+    width: 45px;
+    height: 45px;
+  }
+  .author-name {
+    font-size: 17px;
+  }
+  .review-text {
+    font-size: 15px;
+  }
+  
+  /* Форманын адаптациясы */
+  .review-form-container {
+    padding: 20px;
+  }
+  .review-form-container h3 {
+    font-size: 20px;
+  }
+  .rating-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

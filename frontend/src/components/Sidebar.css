@@ -1,0 +1,165 @@
+/* frontend/src/components/Sidebar.css */
+
+.sidebar {
+  background-color: #ffffff;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  border-right: 1px solid #f0f0f0;
+}
+
+.sidebar-header {
+  margin-bottom: 30px;
+  padding: 10px 0; /* Кошумча боштук */
+}
+
+/* Логотиптин жаңы стили */
+.logo-text {
+  font-size: 22px; /* Өлчөмүн кичирейттик */
+  font-weight: bold;
+  color: #ff6347;
+  text-align: center; /* Ортого жылдыруу */
+  line-height: 1.2; /* Саптардын арасын жакындатуу */
+  margin: 0; /* Керексиз боштуктарды алып салуу */
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.nav-menu li {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #8A92A6;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.nav-link.active {
+  background-color: #ff6347;
+  color: white;
+  box-shadow: 0 4px 8px rgba(255, 99, 71, 0.3);
+}
+
+.nav-link.active svg {
+    color: white !important; /* Активдүү иконканын түсү да ак болот */
+}
+
+.how-to-order-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.how-to-order-card h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.how-to-order-card p {
+  font-size: 0.8rem;
+  color: #8A92A6;
+  line-height: 1.5;
+}
+@media (max-width: 992px) {
+  .scroll-btn {
+    /* Баскычтарды контейнердин ичине киргизүү */
+    left: 10px;
+  }
+  .scroll-btn.next {
+    right: 10px;
+    left: auto;
+  }
+}
+
+/* Кичинекей планшеттер жана телефондор үчүн (768px чейин) */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 60px 0;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  .reviews-row {
+    /* Контейнердин четине жабышып калбашы үчүн */
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+  .review-card {
+    /* Бир картаны көрсөтүп, кийинкисинин бир бөлүгүн чыгарып туруу үчүн */
+    flex: 0 0 85%;
+  }
+  .scroll-btn {
+    display: none; /* Манжа менен жылдыруу үчүн баскычтарды жашыруу */
+  }
+}
+
+/* Телефондор үчүн (576px чейин) */
+@media (max-width: 576px) {
+  .reviews-section {
+    padding: 50px 0;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+  }
+  .review-card {
+    flex-basis: 90%; /* Картаны бир аз чоңойтуу */
+    padding: 25px;
+  }
+  .review-card::before {
+    font-size: 70px;
+    top: 10px;
+    left: 20px;
+  }
+  .author-photo {
+    width: 45px;
+    height: 45px;
+  }
+  .author-name {
+    font-size: 17px;
+  }
+  .review-text {
+    font-size: 15px;
+  }
+  
+  /* Форманын адаптациясы */
+  .review-form-container {
+    padding: 20px;
+  }
+  .review-form-container h3 {
+    font-size: 20px;
+  }
+  .rating-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

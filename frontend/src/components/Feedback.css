@@ -1,0 +1,153 @@
+/* frontend/src/components/Feedback.css */
+.feedback-page-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.feedback-list-container, .feedback-form-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.feedback-list {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.feedback-item {
+  border: 1px solid #f0f0f0;
+  border-left: 4px solid #ff6347;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.feedback-text {
+  font-style: italic;
+  color: #333;
+  margin-top: 0;
+}
+.feedback-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+.feedback-author { font-weight: bold; color: #555; }
+.feedback-date { color: #aaa; }
+/* Форманын стилдери */
+.feedback-form-container h1, .feedback-list-container h1 {
+  margin-top: 0;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+.feedback-form-container p { color: #888; margin-bottom: 20px; }
+.feedback-form { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; flex-direction: column; }
+.form-group label { margin-bottom: 8px; font-weight: 500; color: #555; }
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: #ff6347; }
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6347;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.submit-btn:hover { background-color: #e55337; }
+@media (max-width: 992px) {
+  .scroll-btn {
+    /* Баскычтарды контейнердин ичине киргизүү */
+    left: 10px;
+  }
+  .scroll-btn.next {
+    right: 10px;
+    left: auto;
+  }
+}
+
+/* Кичинекей планшеттер жана телефондор үчүн (768px чейин) */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 60px 0;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  .reviews-row {
+    /* Контейнердин четине жабышып калбашы үчүн */
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+  .review-card {
+    /* Бир картаны көрсөтүп, кийинкисинин бир бөлүгүн чыгарып туруу үчүн */
+    flex: 0 0 85%;
+  }
+  .scroll-btn {
+    display: none; /* Манжа менен жылдыруу үчүн баскычтарды жашыруу */
+  }
+}
+
+/* Телефондор үчүн (576px чейин) */
+@media (max-width: 576px) {
+  .reviews-section {
+    padding: 50px 0;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+  }
+  .review-card {
+    flex-basis: 90%; /* Картаны бир аз чоңойтуу */
+    padding: 25px;
+  }
+  .review-card::before {
+    font-size: 70px;
+    top: 10px;
+    left: 20px;
+  }
+  .author-photo {
+    width: 45px;
+    height: 45px;
+  }
+  .author-name {
+    font-size: 17px;
+  }
+  .review-text {
+    font-size: 15px;
+  }
+  
+
+  .review-form-container {
+    padding: 20px;
+  }
+  .review-form-container h3 {
+    font-size: 20px;
+  }
+  .rating-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

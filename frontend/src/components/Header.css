@@ -1,0 +1,176 @@
+/* frontend/src/components/Header.css */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  left: 15px;
+  color: #aaa;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 12px 12px 40px; /* Иконка үчүн сол жактан орун */
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+}
+.search-bar input:focus {
+  outline: none;
+  border-color: #ff6347;
+  background-color: #fff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-profile span {
+  font-weight: 500;
+  color: #333;
+}
+/* Header.css ичиндеги .login-btn стилин алмаштырыңыз */
+
+.login-btn {
+  display: inline-block; /* 'a' теги үчүн маанилүү */
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white !important; /* Түстү мажбурлап ак кылуу */
+  text-decoration: none; /* Астындагы сызыкты алып салуу */
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #218838;
+  color: white; /* Hover болгондо да түсү ак бойдон калат */
+}
+.logout-btn:hover {
+  color: #c82333;
+}
+@media (max-width: 992px) {
+  .scroll-btn {
+    /* Баскычтарды контейнердин ичине киргизүү */
+    left: 10px;
+  }
+  .scroll-btn.next {
+    right: 10px;
+    left: auto;
+  }
+}
+
+/* Кичинекей планшеттер жана телефондор үчүн (768px чейин) */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 60px 0;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  .reviews-row {
+    /* Контейнердин четине жабышып калбашы үчүн */
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+  .review-card {
+    /* Бир картаны көрсөтүп, кийинкисинин бир бөлүгүн чыгарып туруу үчүн */
+    flex: 0 0 85%;
+  }
+  .scroll-btn {
+    display: none; /* Манжа менен жылдыруу үчүн баскычтарды жашыруу */
+  }
+}
+
+/* Телефондор үчүн (576px чейин) */
+@media (max-width: 576px) {
+  .reviews-section {
+    padding: 50px 0;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+  }
+  .review-card {
+    flex-basis: 90%; /* Картаны бир аз чоңойтуу */
+    padding: 25px;
+  }
+  .review-card::before {
+    font-size: 70px;
+    top: 10px;
+    left: 20px;
+  }
+  .author-photo {
+    width: 45px;
+    height: 45px;
+  }
+  .author-name {
+    font-size: 17px;
+  }
+  .review-text {
+    font-size: 15px;
+  }
+
+  .review-form-container {
+    padding: 20px;
+  }
+  .review-form-container h3 {
+    font-size: 20px;
+  }
+  .rating-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

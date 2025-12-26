@@ -1,0 +1,152 @@
+/* frontend/src/components/Contact.css */
+
+.contact-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.contact-container h1 {
+  margin-top: 0;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* Кичинекей экрандарда бир катар болот */
+  }
+}
+
+.contact-info h2 {
+  color: #ff6347;
+  margin-top: 0;
+}
+
+.contact-info p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-icon {
+  font-size: 1.2rem;
+  color: #ff6347;
+  margin-top: 5px;
+}
+
+.info-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item strong {
+  font-weight: 500;
+  color: #333;
+}
+
+.info-item span {
+  color: #555;
+}
+
+.contact-map iframe {
+  border-radius: 10px;
+}
+@media (max-width: 992px) {
+  .scroll-btn {
+    /* Баскычтарды контейнердин ичине киргизүү */
+    left: 10px;
+  }
+  .scroll-btn.next {
+    right: 10px;
+    left: auto;
+  }
+}
+
+/* Кичинекей планшеттер жана телефондор үчүн (768px чейин) */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 60px 0;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  .reviews-row {
+    /* Контейнердин четине жабышып калбашы үчүн */
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+  .review-card {
+    /* Бир картаны көрсөтүп, кийинкисинин бир бөлүгүн чыгарып туруу үчүн */
+    flex: 0 0 85%;
+  }
+  .scroll-btn {
+    display: none; /* Манжа менен жылдыруу үчүн баскычтарды жашыруу */
+  }
+}
+
+/* Телефондор үчүн (576px чейин) */
+@media (max-width: 576px) {
+  .reviews-section {
+    padding: 50px 0;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+  }
+  .review-card {
+    flex-basis: 90%; /* Картаны бир аз чоңойтуу */
+    padding: 25px;
+  }
+  .review-card::before {
+    font-size: 70px;
+    top: 10px;
+    left: 20px;
+  }
+  .author-photo {
+    width: 45px;
+    height: 45px;
+  }
+  .author-name {
+    font-size: 17px;
+  }
+  .review-text {
+    font-size: 15px;
+  }
+  
+  /* Форманын адаптациясы */
+  .review-form-container {
+    padding: 20px;
+  }
+  .review-form-container h3 {
+    font-size: 20px;
+  }
+  .rating-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
